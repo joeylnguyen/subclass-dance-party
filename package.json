@@ -1,0 +1,10 @@
+{
+  "name": "SpecRunner",
+  "version": "1.0.0",
+  "description": "sub-class-dance-party",
+  "scripts": {
+    "start": "npx live-server"
+  },
+  "author": "Hack Reactor <curriculum.team@hackreactor.com>",
+  "license": "UNLICENSED"
+}
