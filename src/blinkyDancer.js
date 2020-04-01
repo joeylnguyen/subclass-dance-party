@@ -22,9 +22,6 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
 
-  // Call blinkydancer step function
-  this.step();
-
 };
 
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
@@ -33,8 +30,9 @@ makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 // When blinkydancer step is called, it will toggle our span tag
 // It will also invoke the makeDancer step, which schedules the next step
 makeBlinkyDancer.prototype.step = function() {
-  this.$node.toggle();
   makeDancer.prototype.step.call(this);
+  this.$node.toggle();
+
 };
 
 

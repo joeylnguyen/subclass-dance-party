@@ -57,10 +57,11 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer" class="addDancerButton"></span>');
 
-  this.time = timeBetweenSteps;
+  this.timeBetweenSteps = timeBetweenSteps;
   this.top = top;
   this.left = left;
 
+  this.step();
   // Invoke setPosition in the context of the subclass dancer
   this.setPosition(this.top, this.left);
 };
@@ -70,7 +71,7 @@ makeDancer.prototype.step = function() {
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
   // setTimeout will be called in the context of the subclass dancer and it will create a function that will invoke the step function in the context of the subclass dancer
-  setTimeout(this.step.bind(this), this.time);
+  setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
 makeDancer.prototype.setPosition = function (top, left) {
@@ -83,8 +84,15 @@ makeDancer.prototype.setPosition = function (top, left) {
   this.$node.css(styleSettings);
 };
 
+// Create a method that makes all dancers line up horizontally
+makeDancer.prototype.lineUp = function() {
 
+  var styleSettings = {
+    top: '450px',
 
+  };
+  this.$node.css(styleSettings);
+};
 
 
 // var makeDancer = function(top, left, timeBetweenSteps) {
